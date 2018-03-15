@@ -1,0 +1,28 @@
+# Jekyll Digital Collection Generator
+
+# Note: use environment variable on build command to include analytics
+# JEKYLL_ENV=production jekyll build
+
+# Site settings
+title: Title of Collection Site
+tagline: A short description that appears in header
+description: "A more complete description that will appear in meta tags and other locations where appropriate" 
+keywords: university of idaho, digital collections, digital humanities
+email: ewilliamson@uidaho.edu
+
+# url variables
+url: https://uidaholib.github.io
+baseurl: /jekyll-collection
+# repository-name: jekyll-collection
+
+
+# collection display variables 
+# see _data/metadata-fields.csv
+
+# page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
+page_gen:
+  - data: 'metadata'
+    template: 'items'
+    name: 'resource-identifier'
+    dir: 'items'
+    extension: 'html'

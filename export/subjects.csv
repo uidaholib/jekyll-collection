@@ -1,0 +1,23 @@
+---
+---
+{%- comment -%} find all unique subjects used in the metadata {%- endcomment -%}
+subjects,count
+{% assign items = site.data.iwdl %}
+{%- assign subjects = "" | split: "," -%}
+{%- for item in items -%}
+	{%- assign isubs = item.subject | split: ";" -%}
+    {%- for s in isubs -%}
+        {%- assign ss = s | strip | downcase -%}
+        {%- assign subjects = subjects | push: ss -%}
+    {%- endfor -%}
+{% endfor %}
+{%- assign uniqueSubjects = subjects | uniq | sort -%}
+{%- for unique in uniqueSubjects -%}
+    {%- assign count = 0 -%}
+    {%- for c in subjects -%}
+        {%- if c == unique -%}
+            {%- assign count = count | plus: 1 -%}
+        {%- endif -%}
+    {%- endfor -%}
+"{{ unique  | capitalize }}",{{ count }}
+{% endfor %}

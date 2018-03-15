@@ -1,0 +1,23 @@
+---
+---
+{%- comment -%} find all unique series used in the metadata {%- endcomment -%}
+series,count
+{% assign items = site.data.iwdl %}
+{%- assign series = "" | split: "," -%}
+{%- for item in items -%}
+	{%- assign isubs = item.series | split: ";" -%}
+    {%- for s in isubs -%}
+        {%- assign ss = s | strip | downcase -%}
+        {%- assign series = series | push: ss -%}
+    {%- endfor -%}
+{% endfor %}
+{%- assign uniqueSeries = series | uniq | sort -%}
+{%- for unique in uniqueSeries -%}
+    {%- assign count = 0 -%}
+    {%- for c in series -%}
+        {%- if c == unique -%}
+            {%- assign count = count | plus: 1 -%}
+        {%- endif -%}
+    {%- endfor -%}
+"{{ unique  | capitalize }}",{{ count }}
+{% endfor %}
