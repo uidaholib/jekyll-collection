@@ -1,65 +1,48 @@
 ---
 layout: default
 ---
-{%- assign fields = site.data.metadata-fields -%}
+{%- assign fields = site.data.metadata-config -%}
 
-<style>
-    .breadcrumb { margin-left: 3%; margin-right: 3%; }
-    .page-content .wrapper { border-radius: .25rem; }
-    .letter-info { margin-bottom: 15px; }
-    img { width: 100%;}
-    figcaption { text-align: center; }
-    .metadata { font-size: 18px; }
-    .metadata ul { list-style: none; }
-    .metadata li { 
-        border-top: 1px solid #ddd;
-        margin-top: 5px;
-    }
-    .field {
-        font-weight: bold;
-    }
-    .field-value { }
-</style>
+<div class="container">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ "/" | absolute_url }}">IWDL</a></li>
+        <li class="breadcrumb-item"><a href="{{ "/items/" | absolute_url }}">Items</a></li>
+        <li class="breadcrumb-item active">{{ page.title | truncatewords: 5 }}</li>
+    </ul>
 
-<div class="page-content">
-        <ul class="breadcrumb">
-                <li><a href="{{ "/" | absolute_url }}">IWDL</a></li>
-                <li><a href="{{ "/docs/" | absolute_url }}">Documents</a></li>
-                <li>{{ page.title | truncatewords: 5 }}</li>
-            </ul>
+    <div class="">
+        <h2 class="">{{ page.title }}</h2>
+    </div>
 
-    <div class="wrapper">
+    <div class="row">
 
-        <div class="letter-info">
-            <h2 id="letter-title">{{ page.title }}</h2>
+        <div class="card col-md-4" >
+            <img class="card-img-top" src="{{ site.baseurl }}/images/thumbs/{{ page.identifier }}.jpg" alt="item thumbnail">
+            <div class="card-body">
+                <a href="" target="_blank" class="btn btn-primary" title="Document PDF - {{ page.title }}">Download PDF</a>
+            </div>
         </div>
-
-<div class="row">
-<div class="col-md-4">
-        <figure>
-            <a href="https://digital.lib.uidaho.edu/utils/getfile/collection/idahowater/id/{{ page.cdm-number }}" class="pdf-link" target="_blank"><img src="{{ site.baseurl }}/images/thumbs/{{ page.cdm-number }}.jpg" alt="pdf thumbnail" ></a>
-            <figcaption><a href="https://digital.lib.uidaho.edu/utils/getfile/collection/idahowater/id/{{ page.cdm-number }}" target="_blank" class="pdf-download" title="Document PDF - {{ page.title }}"><button type="button" class="btn btn-success">Download PDF</button></a></figcaption>
-        </figure>
-
-</div>
-<div  class="col-md-8">
-
-        <div class="metadata">
-            <ul>
-                {% for f in fields %}{% if page[f.field] %}<li><span class="field">{{ f.display-name }}:</span> <span class="field-value">{{ page[f.field] }}</span></li>{% endif %}
-                {% endfor %}
-            </ul>
+        <div class=" card col-md-8">
+            <div class="card-body metadata">
+                <ul>
+                    {% for f in fields %}{% if page[f.field] %}<li><span class="field">{{ f.display-name }}:</span> <span class="field-value">{{ page[f.field] }}</span></li>{% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Related
+            </div>
+            <div class="card-body">
+                <p>subjects, series, collection links</p>
+            </div>
         </div>
-</div> 
-</div>
+    </div>
 
-        <div class="related">
-            <p>Related:</p>
-            <p>subjects, series, collection links</p>
-        </div>
-
-        <div class="back-button">
-            <a href="{{ site.baseurl }}">❮ Back to Collection Items</a>
-        </div>
+    <div class="back-button">
+        <a href="{{ "/items/" | relative_url }}">❮ Back to Collection Items</a>
     </div>
 </div>
