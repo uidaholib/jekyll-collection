@@ -1,2 +1,5 @@
 # jekyll-collection
-project to auto generate a digital collection site
+
+a project to generate a digital collection site given:
+- csv of collection metadata
+- directory of images or pdfs
