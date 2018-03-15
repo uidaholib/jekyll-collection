@@ -23,6 +23,6 @@ baseurl: /jekyll-collection
 page_gen:
   - data: 'metadata'
     template: 'items'
-    name: 'resource-identifier'
+    name: 'identifier'
     dir: 'items'
     extension: 'html'
