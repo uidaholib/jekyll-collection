@@ -1,6 +1,6 @@
 ---
 # create list of links to grab pdfs from CONTENTdm
 ---
-{%- for item in site.data[site.csvtitle] -%}
+{%- for item in site.data.metadata -%}
 http://digital.lib.uidaho.edu/utils/getfile/collection/idahowater/id/{{ item.cdm-number }}
 {% endfor %}

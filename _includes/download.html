@@ -1,7 +1,0 @@
-{% if page.format contains "pdf" %}
-<a target="_blank" alt="click to download pdf" title="click to download pdf" href="{%if site.repo-type == "contentdm" %}{{ site.repo-url }}/utils/getfile/collection/{{ site.repo-collection-id }}/id/{%if item.title %}{{ item.object-id }}/filename/{{ item.title | strip | remove: " " }}{%else%}{{ page.object-id }}/filename/{{ page.title | strip | remove: " " }}{% endif %}.pdf">Download PDF</a>
-{% else %}
-{{ site.baseurl }}/items/pdfs/{{ item.object-id | downcase }}.pdf 
-{% endif %}
-{% elseif  %}
-
