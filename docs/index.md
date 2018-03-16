@@ -10,7 +10,7 @@ if thumbs have no extension, add using `for f in *; do mv "$f" "$f.jpg"; done`.
 
 script to generate thumbs from directory of pdfs or images?
 
-## pdfs
+## pdfs 
 
 CONTENTdm getfile utility:
 `/utils/getfile/collection/alias/id/pointer/filename/name`

@@ -5,14 +5,17 @@ layout: page
 <style>
     .grid-item { width: 25%; }
     .grid-item--width2 { width: 50%; }
+    .thumb{    max-width: 80px;
+    margin: 0 auto;
+    box-shadow: 2px 2px 2px grey;}
 </style>
 <!-- maybe look at https://getbootstrap.com/docs/4.0/examples/album/ -->
 <div class="grid">
 {% for item in items %}
     <div class="card grid-item" >
-        <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ item.identifier }}.jpg" alt="item thumbnail">
-        <div class="card-body">
-            <a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html" target="_blank" class="btn btn-primary" title="{{ page.title }}">{{ item.title }}</a>
+        <img class="card-img-top thumb" src="{% include image/thumb.html %}" alt="item thumbnail">
+            <div class="card-body">
+            <a href="{% include item-link.html %}" target="_blank" class="btn btn-primary" title="{{ page.title }}">{{ item.title }}</a>
         </div>
     </div>
 {% endfor %}

@@ -1,0 +1,5 @@
+{% if site.repo-type == "contentdm" and site.repo-link == "on" %}
+{{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/{{ item.object-id }}
+{% else %}
+{{ site.baseurl }}/items/{{ item.object-id | downcase }}.html
+{% endif %}

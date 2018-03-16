@@ -1,5 +1,5 @@
 ---
-layout: isotope
+layout: isotope-search
 title: Browse
 permalink: /browse/
 ---

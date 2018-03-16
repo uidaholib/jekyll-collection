@@ -23,10 +23,10 @@ Click on the "Read" link to see the full document.
     <tbody>
 {% for item in items %}        
         <tr>
-            <td><a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html">{{ item.title }}</a></td>
-            <td>{{ item.date }}</td>
-            <td>{{ item.subjects }}</td>
-            <td>{{ item.description | truncatewords: 15 }} <a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html">Read</a></td>
+        <td><a href="{% include download/pdf.html %}">{{ item.title }}</a></td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.subjects }}</td>
+        <td>{{ item.description | truncatewords: 15 }} <a href="{% include item-link.html %}">More</a></td>
         </tr>
 {% endfor %}
     </tbody>
