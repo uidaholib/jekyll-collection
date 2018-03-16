@@ -2,7 +2,7 @@
 title: Site Search
 layout: page
 ---
-{%- assign items = site.data.metadata -%}
+{%- assign items = site.data[site.csvtitle] -%}
 
 Basic search of full metadata using [Lunr.js](https://lunrjs.com/).
 *May take a second to load!* 

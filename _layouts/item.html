@@ -17,9 +17,13 @@ layout: default
     <div class="row">
 
         <div class="card col-md-4" >
-            <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ page.identifier }}.jpg" alt="item thumbnail">
+         <img class="card-img-top thumb" src="{% include image/thumb.html %}" alt="item thumbnail">
             <div class="card-body">
-                <a href="" target="_blank" class="btn btn-primary" title="Document PDF - {{ page.title }}">Download PDF</a>
+{% if page.format contains "pdf" %}<a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
+{% elsif page.format contains "image" %}<a target="_blank" href="{% include download/image.html %}">View Image in New Tab</a>
+{% elsif page.format contains "mp3" %}<a target="_blank" href="{% include download/mp3.html %}">Download PDF</a>
+{% else %}
+{% endif %}
             </div>
         </div>
         <div class=" card col-md-8">
@@ -37,7 +41,12 @@ layout: default
                 Related
             </div>
             <div class="card-body">
+              
                 <p>subjects, series, collection links</p>
+                {% assign subjects = page.subjects | split:';' %}
+                     {% for subject in subjects %}
+                     <a class="vocab {{ subject | strip }}"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
+                     {% endfor %} 
             </div>
         </div>
     </div>

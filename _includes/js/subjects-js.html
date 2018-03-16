@@ -1,6 +1,6 @@
 {%- comment -%} find all unique subjects used in the metadata {%- endcomment -%}
 {%- assign min-count = 0 %}
-{%- assign items = site.data.metadata -%}
+{%- assign items = site.data[site.csvtitle] -%}
 {%- assign subs = "" | split: "," -%}
 {%- for item in items -%}
 	{%- assign isubs = item.subjects | split: ";" -%}
@@ -40,7 +40,7 @@
         var item;
         for (i = 0; i < array.length; i++) {
             var size = mapSize(array[i].count)
-            item = '<p class="wrd tagcloud' + size + '"><a target="_blank" href="https://digital.lib.uidaho.edu/cdm4/results.php?CISOOP1=exact&amp;CISOBOX1=' + array[i].subject + '&amp;CISOFIELD1=subjed&amp;CISOOP2=exact&amp;CISOBOX2=&amp;CISOFIELD2=creato&amp;CISOOP3=any&amp;CISOBOX3=&amp;CISOFIELD3=descri&amp;CISOOP4=none&amp;CISOBOX4=&amp;CISOFIELD4=CISOSEARCHALL&amp;CISOROOT=/idahowater&amp;t=s">' + array[i].subject + '</a></p>';
+            item = '<p class="wrd tagcloud' + size + '"><a target="_blank" href="../browse#' + array[i].subject + '">' + array[i].subject + '</a></p>';
             cloud.innerHTML += item;
         }
     }

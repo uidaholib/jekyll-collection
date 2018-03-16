@@ -1,0 +1,41 @@
+---
+layout: page 
+---
+{% assign items = site.data[site.csvtitle] %}
+<style>
+  .item{padding:10px;}
+  .card{padding:4px;}
+</style>
+<p class="center">
+<input type="text" id="quicksearch" placeholder="Search ... "> 
+<input class="btn btn-success" title="Search" type="submit" value="Go" alt="Search" id="goButton" > 
+<a class="btn btn-secondary btn-sm filter" href="#" data-filter="">Reset Search</a> <br class="hidden-md-up"> 
+{% for item in items %}
+ {% if forloop.first %}
+<span class="info2"><span id="numberof">{{ forloop.length }}</span> of {{ forloop.length }} items</span> </p>
+{% endif %}
+{% endfor %}
+<div class="grid" id="isocontainer">
+    {% for item in items %}
+    <div class="item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12" >
+        <div class="card text-center">
+        <h3 class="card-title">{{ item.title }} </h3>
+        <p class="card-text"><b>Date</b>:{{item.date}}</p>
+         <p >
+     <a  target="_blank" href="{% include item-link.html %}">
+        <img class="card-img-top thumb lazy" data-original="{% include image/thumb.html %}" alt="item thumbnail">
+     </a></p>
+     <p >
+    {% assign subjects = item.subjects | split:';' %}
+        {% for subject in subjects %}
+        <a class="filter {{ subject | strip }} btn btn-sm btn-secondary" data-filter="{{ subject | strip }}" href="#{{ subject | strip }}">{{ subject }}</a> 
+                     {% endfor %} 
+                     </p>
+         <p class="card-text">{{item.description | truncatewords: 20}}</p>
+            <p >
+            <a href="{% include item-link.html %}" target="_blank" class="btn btn-primary" title="{{ page.title }}">Go to Item</a>
+       </p>
+         </div>
+    </div>
+{% endfor %}
+</div>
