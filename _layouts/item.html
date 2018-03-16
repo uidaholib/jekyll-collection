@@ -17,9 +17,20 @@ layout: default
     <div class="row">
 
         <div class="card col-md-4" >
-            <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ page.identifier }}.jpg" alt="item thumbnail">
+             {%if site.repo-url%}
+        <img class="card-img-top thumb" src="{{ site.repo-url }}{{ site.repo-collection-thumblinkurl }}{{ page.cdmid }}" alt="item thumbnail">
+        {%else%}
+        <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ item.cdmid }}.jpg" alt="item thumbnail">
+        {%endif%}
             <div class="card-body">
-                <a href="" target="_blank" class="btn btn-primary" title="Document PDF - {{ page.title }}">Download PDF</a>
+                {%if site.repo-url%}
+    <a target="_blank" href="{{ site.repo-url }}{{ site.repo-collection-pdfdownload }}{{ page.cdmid }}/filename/{{ page.title }}.pdf">Download PDF</a>
+     
+        
+      
+           {%else%}
+                <a href="" target="_blank" class="btn btn-primary" title="Document PDF - {{ page.title }}">Download PDF</a> 
+                 {%endif%}
             </div>
         </div>
         <div class=" card col-md-8">
@@ -37,7 +48,12 @@ layout: default
                 Related
             </div>
             <div class="card-body">
+              
                 <p>subjects, series, collection links</p>
+                {% assign subjects = page.subjects | split:';' %}
+                     {% for subject in subjects %}
+                     <a class="vocab {{ subject | strip }}"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
+                     {% endfor %} 
             </div>
         </div>
     </div>

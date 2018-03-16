@@ -5,12 +5,19 @@ layout: page
 <style>
     .grid-item { width: 25%; }
     .grid-item--width2 { width: 50%; }
+    .thumb{    max-width: 80px;
+    margin: 0 auto;
+    box-shadow: 2px 2px 2px grey;}
 </style>
 
 <div class="grid">
 {% for item in items %}
     <div class="card grid-item" >
-        <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ item.identifier }}.jpg" alt="item thumbnail">
+        {%if site.repo-url%}
+        <img class="card-img-top thumb" src="{{ site.repo-url }}{{ site.repo-collection-thumblinkurl }}{{ item.cdmid }}" alt="item thumbnail">
+        {%else%}
+        <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ item.cdmid }}.jpg" alt="item thumbnail">
+        {%endif%}
         <div class="card-body">
             <a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html" target="_blank" class="btn btn-primary" title="{{ page.title }}">{{ item.title }}</a>
         </div>

@@ -23,7 +23,12 @@ Click on the "Read" link to see the full document.
     <tbody>
 {% for item in items %}        
         <tr>
-            <td><a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html">{{ item.title }}</a></td>
+        {%if site.repo-url%}
+       <td><a href="{{ site.repo-url }}{{ site.repo-collection-pdfdownload }}{{ item.cdmid }}/filename/{{ item.title }}.pdf">{{ item.title }}</a></td>
+        {%else%}
+        <td><a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html">{{ item.title }}</a></td>
+        {%endif%}
+            
             <td>{{ item.date }}</td>
             <td>{{ item.subjects }}</td>
             <td>{{ item.description | truncatewords: 15 }} <a href="{{ site.baseurl }}/items/{{ item.identifier | downcase }}.html">Read</a></td>

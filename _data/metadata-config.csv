@@ -1,11 +1,14 @@
 field,display-name
-title,Item title
-creator,Creator
-date,Date created
-location,Location
-lat-long,Lat-long
-subjects,Subjects
-description,Abstract
-identifier,Resource ID
+title,Title
+author,Author
+reader,Reader,
+creatortype,Creator Type
+date,Date
+keywords,Keywords
+description,Description
+grade,Grade-Level
+identifier,ID
 format,Format
 type,Type
+link,Link
+cdmid,CDMID

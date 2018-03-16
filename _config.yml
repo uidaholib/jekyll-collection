@@ -13,6 +13,11 @@ email: ewilliamson@uidaho.edu
 # url variables
 url: https://uidaholib.github.io
 baseurl: /jekyll-collection
+repo-url: https://digital.lib.uidaho.edu 
+repo-collection-thumblinkurl: /utils/getthumbnail/collection/guidedread/id/
+repo-collection-imagelinkurl:
+repo-collection-pdfdownload: /utils/getfile/collection/guidedread/id/
+collectionid: guidedreading
 # repository-name: jekyll-collection
 
 # collection display variables 
