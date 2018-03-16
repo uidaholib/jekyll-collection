@@ -3,7 +3,7 @@ layout: table
 title: Items
 permalink: /items/
 ---
-{% assign items = site.data.metadata %}
+{% assign items = site.data[site.csvtitle] %}
 
 <!-- currently downloaded version of datatables is bundled with bootstrap and responsive and csv download extensions -->
 ## Browse Items

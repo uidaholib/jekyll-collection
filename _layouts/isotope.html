@@ -1,7 +1,7 @@
 ---
 layout: page 
 ---
-{% assign items = site.data.metadata %}
+{% assign items = site.data[site.csvtitle] %}
 <style>
     .grid-item { width: 25%; }
     .grid-item--width2 { width: 50%; }
@@ -9,7 +9,7 @@ layout: page
     margin: 0 auto;
     box-shadow: 2px 2px 2px grey;}
 </style>
-<!-- maybe look at https://getbootstrap.com/docs/4.0/examples/album/ -->
+
 <div class="grid">
 {% for item in items %}
     <div class="card grid-item" >
