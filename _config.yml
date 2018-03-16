@@ -4,11 +4,12 @@
 # JEKYLL_ENV=production jekyll build
 
 # Site settings
-title: Title of Collection Site
-tagline: A short description that appears in header
-description: "A more complete description that will appear in meta tags and other locations where appropriate" 
-keywords: university of idaho, digital collections, digital humanities
-email: ewilliamson@uidaho.edu
+title: Potlatch Historical Society Collection
+tagline: Life in and around Potlatch, Idaho from 1880 to 1998
+description: "Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998" 
+keywords: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture
+csvtitle: phs
+email: dbecker@uidaho.edu
 
 # url variables
 url: https://uidaholib.github.io
@@ -17,8 +18,8 @@ baseurl: /jekyll-collection
 # repository variables (leave blank if self-contained)
 repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: guidedread
-repo-link: off #options[on,off] - if on, will link to base repository item url outside of directory; if off or blank, will link to item url within directory
+repo-collection-id: phs
+repo-link: on #options[on,off] - if on, will link to base repository item url outside of directory; if off or blank, will link to item url within directory
 # repository-name: jekyll-collection
 
 # collection display variables 
@@ -26,7 +27,7 @@ repo-link: off #options[on,off] - if on, will link to base repository item url o
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
-  - data: 'metadata'
+  - data: 'phs'
     template: 'items'
     name: 'object-id'
     dir: 'items'

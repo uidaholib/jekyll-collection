@@ -19,7 +19,11 @@ layout: default
         <div class="card col-md-4" >
          <img class="card-img-top thumb" src="{% include image/thumb.html %}" alt="item thumbnail">
             <div class="card-body">
-    <a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
+{% if page.format contains "pdf" %}<a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
+{% elsif page.format contains "image" %}<a target="_blank" href="{% include download/image.html %}">View Image in New Tab</a>
+{% elsif page.format contains "mp3" %}<a target="_blank" href="{% include download/mp3.html %}">Download PDF</a>
+{% else %}
+{% endif %}
             </div>
         </div>
         <div class=" card col-md-8">
