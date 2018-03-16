@@ -1,4 +1,4 @@
-{% if site.repo-link == "on" %}
+{% if site.repo-link %}
 {{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/{{ item.object-id }}
 {% else %}
 {{ site.baseurl }}/items/{{ item.object-id | downcase }}.html
