@@ -13,11 +13,12 @@ email: ewilliamson@uidaho.edu
 # url variables
 url: https://uidaholib.github.io
 baseurl: /jekyll-collection
+
+# repository variables (leave blank if self-contained)
+repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-thumblinkurl: /utils/getthumbnail/collection/guidedread/id/
-repo-collection-imagelinkurl:
-repo-collection-pdfdownload: /utils/getfile/collection/guidedread/id/
-collectionid: guidedreading
+repo-collection-id: guidedread
+repo-link: off #options[on,off] - if on, will link to base repository item url outside of directory; if off or blank, will link to item url within directory
 # repository-name: jekyll-collection
 
 # collection display variables 
@@ -27,6 +28,6 @@ collectionid: guidedreading
 page_gen:
   - data: 'metadata'
     template: 'items'
-    name: 'identifier'
+    name: 'object-id'
     dir: 'items'
     extension: 'html'

@@ -17,20 +17,9 @@ layout: default
     <div class="row">
 
         <div class="card col-md-4" >
-             {%if site.repo-url%}
-        <img class="card-img-top thumb" src="{{ site.repo-url }}{{ site.repo-collection-thumblinkurl }}{{ page.cdmid }}" alt="item thumbnail">
-        {%else%}
-        <img class="card-img-top" src="{{ site.baseurl }}/items/thumbs/{{ item.cdmid }}.jpg" alt="item thumbnail">
-        {%endif%}
+         <img class="card-img-top thumb" src="{% include image/thumb.html %}" alt="item thumbnail">
             <div class="card-body">
-                {%if site.repo-url%}
-    <a target="_blank" href="{{ site.repo-url }}{{ site.repo-collection-pdfdownload }}{{ page.cdmid }}/filename/{{ page.title }}.pdf">Download PDF</a>
-     
-        
-      
-           {%else%}
-                <a href="" target="_blank" class="btn btn-primary" title="Document PDF - {{ page.title }}">Download PDF</a> 
-                 {%endif%}
+    <a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
             </div>
         </div>
         <div class=" card col-md-8">
