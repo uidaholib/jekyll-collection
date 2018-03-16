@@ -12,8 +12,8 @@ csvtitle: guidedreading
 email: dbecker@uidaho.edu
 
 # url variables
-url: https://uidaholib.github.io
-baseurl: /jekyll-collection
+url: https://dcnb.github.io
+baseurl: /jekyll-collection-contentdm
 
 # repository variables (leave blank if self-contained)
 repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
