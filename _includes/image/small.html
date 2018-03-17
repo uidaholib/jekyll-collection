@@ -1,0 +1,5 @@
+{%if site.repo-type == "contentdm" %}
+{{ site.repo-url }}/utils/ajaxhelper/?CISOROOT={{ site.repo-collection-id }}&amp;CISOPTR={%if item.title %}{{ item.object-id }}{%else %}{{ page.object-id }}{% endif %}&amp;action=2&amp;DMSCALE=30&amp;DMWIDTH=512&amp;DMHEIGHT=480&amp;DMX=0&amp;DMY=0&amp;DMTEXT=&amp;DMROTATE=0
+{% else %}
+{{ site.baseurl }}/items/thumbs/{{ item.object-id }}.jpg
+{% endif %}

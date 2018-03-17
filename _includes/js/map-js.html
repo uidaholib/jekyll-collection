@@ -38,7 +38,7 @@
     L.geoJson(geodata, {
         pointToLayer: function(feature,latlng){
             var marker = L.marker(latlng);
-            marker.bindPopup('<h3>' + feature.properties.title + '</h3><p>Authors: '+ feature.properties.creator + '<br>Date: ' + feature.properties.date + '<br>Subjects: ' + feature.properties.subjects + '<br>Identifier: ' + feature.properties.id + '</p><h4><a href="{{ site.baseurl }}/items/'+feature.properties.id+'.html" >View Item</a><h4>');
+            marker.bindPopup('<h3>' + feature.properties.title + '</h3><a target="_blank" class="btn btn-light" href="{% if site.repo-link %}{{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/'+feature.properties.id+'{% else %}{{ site.baseurl }}/items/'+feature.properties.id+'.html{% endif %}" ><img class="thumb" src="{% if site.repo-link %}{{ site.repo-url }}/utils/getthumbnail/collection/{{ site.repo-collection-id }}/id/'+feature.properties.id+'{% else %}{{ site.baseurl }}/items/thumbs/'+feature.properties.id+'.jpg{% endif %}" /></a><p>Authors: '+ feature.properties.creator + '<br>Date: ' + feature.properties.date + '<br>Subjects: ' + feature.properties.subjects + '<br>Identifier: ' + feature.properties.id + '</p><h4><a target="_blank" class="btn btn-light" href="{% if site.repo-link %}{{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/'+feature.properties.id+'{% else %}{{ site.baseurl }}/items/'+feature.properties.id+'.html{% endif %}" >View Item</a><h4>');
             return marker;
         }, 
         onEachFeature: function (feature, layer) {

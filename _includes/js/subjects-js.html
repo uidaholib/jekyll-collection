@@ -40,7 +40,7 @@
         var item;
         for (i = 0; i < array.length; i++) {
             var size = mapSize(array[i].count)
-            item = '<p class="wrd tagcloud' + size + '"><a target="_blank" href="../browse#' + array[i].subject + '">' + array[i].subject + '</a></p>';
+            item = '<p class="wrd tagcloud' + size + '"><a href="../browse#' + array[i].subject + '">' + array[i].subject + '</a></p>';
             cloud.innerHTML += item;
         }
     }
