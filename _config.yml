@@ -4,11 +4,11 @@
 # JEKYLL_ENV=production jekyll build
 
 # Site settings
-title: Barnard-Stockbridge Collection
-tagline: Life in and around Wallace, Idaho from 1880 to 1998
-description: "Photographs by Nellie Stockbridge and others, etc. " 
+title: White Pine Collection
+tagline: White Pine - King of Many Waters Book Photographs
+description: "White Pine - King of Many Waters Book Photographs" 
 keywords: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture
-csvtitle: phs
+csvtitle: whitepine
 email: dbecker@uidaho.edu
 
 # url variables
@@ -18,7 +18,7 @@ baseurl: /jekyll-collection-contentdm
 # repository variables (leave blank if self-contained)
 repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: phs
+repo-collection-id: whitepine
 repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory
 # repository-name: jekyll-collection
 
@@ -27,7 +27,7 @@ repo-link: on #options[on] - if on, will link to base repository item url outsid
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 # page_gen:
-#  - data: 'barstock' #should be the same as your csvtitle above
+#  - data: 'whitepine' #should be the same as your csvtitle above
 #    template: 'items' 
 #    name: 'object-id' #name of the unique identifier in your metadata sheet
  #   dir: 'items' #which directory you'd like your pages generated to
