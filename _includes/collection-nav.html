@@ -12,7 +12,7 @@
                 {% if site.menu contains "browse" %} <li class="nav-item {% if page.url == "/browse/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/browse/" | relative_url }}">Browse</a> 
                 </li>{% endif %}
-              {% if site.menu contains "table" %}   <li class="nav-item {% if page.url == "/items/" %} active{% endif %}">
+              {% if site.menu contains "items" %}   <li class="nav-item {% if page.url == "/items/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/items/" | relative_url }}">Items</a>
                 </li>{% endif %}
                {% if site.menu contains "map" %} <li class="nav-item {% if page.url == "/map/" %} active{% endif %}">

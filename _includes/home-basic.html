@@ -1,0 +1,35 @@
+{% assign items = site.data[site.csvtitle] %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">{{site.title}}</h1>
+        <p>{{site.coll-description}}</p>
+         {% if site.menu contains "about" %} <p><a class="btn btn-primary btn-lg" href="{{ "/about/" | relative_url }}" role="button">Learn more &raquo;</a></p> {% endif %} 
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        {% if site.menu contains "browse" or site.menu contains "items" %}
+        <div class="col-md-4">
+        <h2>Statistics</h2>
+        <p>Items:  {{site.coll-itemcount}}</p>
+        <p>Media Types: {{site.coll-mediatype}} </p>
+        <p><a class="btn btn-secondary" href="{% if site.menu contains "browse"%}{{ "/browse/" | relative_url }}{%else%}{{ "/items/" | relative_url }}{%endif%}" role="button">View all &raquo;</a></p>
+        </div>
+    {%endif%}
+       {% if site.menu contains "subjects" %}
+        <div class="col-md-4">
+        <h2>Subjects</h2>
+        <p>{% assign subjects = site.coll-subjects | split:',' %}
+        {% for subject in subjects %}<a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="browse/#{{ subject }}">{{ subject }}</a>  {% endfor %} </p>
+        <p><a class="btn btn-secondary" href="{{ "/subjects/" | relative_url }}" role="button">View Subject Cloud &raquo;</a></p>
+        </div>
+    {%endif%}
+     {% if site.menu contains "map" %}
+        <div class="col-md-4">
+        <h2>Main Location(s)</h2>
+        <p> {{site.coll-location}} </p>
+        <p><a class="btn btn-secondary" href="{{ "/map/" | relative_url }}" role="button">View map &raquo;</a></p>
+        </div>
+      {%endif%}
+    </div>
+</div>

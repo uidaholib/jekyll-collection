@@ -2,3 +2,35 @@
 {    max-width: 80px;
     box-shadow: 2px 2px 2px grey;}
 .center{text-align:center;}
+.btn-sm{margin: 2px;}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
