@@ -1,0 +1,28 @@
+
+{%- assign items = site.data[site.csvtitle] -%}
+
+<script>
+    var collection = "{{site.repo-collection-id}}";
+    var objectids = [{% for item in items %}{% if forloop.last %}"{{item.object-id}}"{%else%}"{{item.object-id}}",{% endif %}{% endfor %}];
+    {% for i in (1..5) %}var image{{ i }} = document.getElementById("car-image{{ i }}");
+    var imagelink{{ i }} = document.getElementById("car-imagelink{{ i }}");
+    {% endfor %}
+    /* Fisher-Yates shuffle https://bost.ocks.org/mike/shuffle/ */
+    function shuffle(array) {
+        var m = array.length, t, i;
+        while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+        }
+        return array;
+    }
+    shuffle(objectids);
+    console.log(objectids);
+    {% for i in (1..5) %}image{{ i }}.src = 'https://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT='+collection+'&CISOPTR='+objectids[{{ i }}]+'&action=2&action=2&DMSCALE=40&DMWIDTH=1012&DMHEIGHT=1048&DMX=0&DMY=0&DMTEXT=&DMROTATE=0';
+    imagelink{{ i }}.href = 'https://digital.lib.uidaho.edu/cdm/ref/collection/'+collection+'/id/'+objectids[{{ i }}];
+    {% endfor %}
+
+    
+</script>

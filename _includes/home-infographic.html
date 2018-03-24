@@ -11,72 +11,64 @@
             <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Number of Items</div>
   <div class="card-body">
-    <h5 class="card-title">{{site.coll-itemcount}}</h5>
+    <h5 class="card-title">{% for item in items %}{% if forloop.first %}{{ forloop.length }}{% endif %}{% endfor %}</h5>
     </div>
 </div>
          <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Time Span</div>
   <div class="card-body">
-    <h5 class="card-title">{{site.coll-timestart}} to {{site.coll-timeend}}</h5>
+    <h5 class="card-title">{%- assign sorted-items = items | sort: "date" -%}
+        {% for sorted-item in sorted-items %}{% if forloop.first %}{{sorted-item.date}} to {% elsif forloop.last %}{{sorted-item.date}}{% endif %}{% endfor %}</h5>
     </div>
 </div>
 <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Subjects</div>
   <div class="card-body">
-    <h5 class="card-title">{% assign subjects = site.coll-subjects | split:',' %}
+    <h5 class="card-title">{% assign subjects = site.subjects | split:',' %}
         {% for subject in subjects %}
-    <a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="{% if site.menu contains "browse"%}browse/#{{ subject }}{%else%}{{ "/subjects/" | relative_url }}{%endif%}">{{ subject }}</a> 
+    <a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="{% if site.pagetypes contains "browse"%}browse/#{{ subject }}{%else%}{{ "/subjects/" | relative_url }}{%endif%}">{{ subject }}</a> 
                      {% endfor %} </h5>
     </div>
 </div>
+{% if site.locations%}
 <div class="card  mb-3" >
-  <img class="card-img-top" src="http://maps.google.com/maps/api/staticmap?center={{site.coll-latitude}},{{site.coll-longitude}}&amp;zoom=16&amp;size=700x600&amp;maptype=satellite&amp;sensor=false" alt="Google Map Image of {{site.coll-location}}">
+  <img class="card-img-top" src="http://maps.google.com/maps/api/staticmap?center={{site.latitude}},{{site.longitude}}&amp;zoom=16&amp;size=700x600&amp;maptype=satellite&amp;sensor=false" alt="Google Map Image of {{site.location}}">
 
 <!-- Text Overlay -->
 <div class="card-img-overlay">
-<h4 class="card-title" style="color:white;margin-top:25%;text-align:center"><a href="{{ "/map/" | relative_url }}" style="color:white;">Location: {{site.coll-location}}</a></h4>
+<h4 class="card-title" style="color:white;margin-top:25%;text-align:center"><a href="{{ "/map/" | relative_url }}" style="color:white;">Location: {% assign locations = site.locations | split:';' %}
+  {% for location in locations %}{{location}}<br/>{% endfor %}</a></h4>
 </div>
  </div> 
+ {% endif %}
 </div>
  <div class=" col-md-8 col-sm-12">
      <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Description</div>
   <div class="card-body">
     <p class="card-text">
-        {% if site.menu contains "about" %} {{site.coll-description | truncatewords: 30 }}
+        {% if site.pagetypes contains "about" %} {{site.description | truncatewords: 30 }}
          <br/><br/><a class="btn btn-secondary" href="{{ "/about/" | relative_url }}" role="button">Learn More &raquo;</a>
          {% else %}
-         {{site.coll-description }}
+         {{site.description }}
          {% endif %}
     </p>
      </div>
 </div>  
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      {% assign images = site.image-highlights | split:',' %}
+      {% for image in images %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index }}" class="{% if forloop.first %}active{% endif %}"></li>
+    {% endfor %} 
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-  <img src="{{site.coll-image}}" style="width:100%" alt="{{site.coll-imagetitle}}">
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+  <img id="car-image{{ forloop.index }}" src="" style="width:100%" alt="Image Highlight">
   <div class="carousel-caption ">
-    <h5><a href="{{site.coll-imagelink}}" style="color:white;">{{site.coll-imagetitle}}</a></h5>
+    <h5><a target="_blank" id="car-imagelink{{ forloop.index }}" href="" class="btn btn-sm btn-info">Go to Image</a></h5>
   </div>
 </div>
-<div class="carousel-item">
-  <img src="{{site.coll-image2}}" style="width:100%" alt="{{site.coll-imagetitle2}}">
-  <div class="carousel-caption ">
-    <h5><a href="{{site.coll-imagelink2}}" style="color:white;">{{site.coll-imagetitle2}}</a></h5>
-  </div>
-</div>
-<div class="carousel-item">
-  <img src="{{site.coll-image3}}" style="width:100%" alt="{{site.coll-imagetitle3}}">
-  <div class="carousel-caption ">
-    <h5><a href="{{site.coll-imagelink3}}" style="color:white;">{{site.coll-imagetitle3}}</a></h5>
-  </div>
-</div>
- 
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,12 +80,12 @@
   </a>
 </div>
 </div>
-
+{% include js/carousel-js.html %}
 <div class=" col-md-12 col-sm-12">
 <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Media Type</div>
   <div class="card-body">
-    <h5 class="card-title">{{site.coll-mediatype}}</h5>
+    <h5 class="card-title">{{site.mediatypes}}</h5>
     <p>{% for item in items %} {% if item.type contains "image" %}<i class="far fa-image"></i> 
     {% elsif item.type contains "Text" %}<i class="far fa-file"></i> 
     {% elsif item.type contains "sound" %}<i class="far fa-file-audio"></i> 

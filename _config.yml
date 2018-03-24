@@ -3,53 +3,37 @@
 # Note: use environment variable on build command to include analytics
 # JEKYLL_ENV=production jekyll build
 
-# Site settings
+# Site/Collection settings
 title: Potlatch Historical Society Collection
 tagline: Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998
-keywords: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture
-menu: browse, subjects, map, items #options - [browse,items,map,subjects,timeline,about] -- recommend that you at least use browse and/or items AND subjects
-csvtitle: phs
-email: dbecker@uidaho.edu
+subjects: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture #separate by comma(',')
+description: "Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998. The collection was built from items held by the Potlatch Historical Society in 2016-2017. Items were also added via digitization days held in Potlatch in 2017 and 2018. " 
+mediatypes: documents, images #options[documents,images,video,sound,data] separate by comma(',')
+locations: Potlatch, Idaho; Harvard, Idaho #separate by semi-colon(';')
+latitude: 46.922281 #to determine center of map
+longitude: -116.907683 #to determine center of map
+
+# Site Population settings
+csvtitle: phs 
+pagetypes: subjects, map, items, timeline, about #options for pagetypes- [items,map,timeline,about] -- home, browse, and subjects are auotmatic
 homepagetype: infographic # options for homepage type [basic,infographic]
 
 # repository variables (leave blank if self-contained)
-repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
 repo-url: https://digital.lib.uidaho.edu 
 repo-collection-id: phs
-repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
+repo-link: #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 
-# Collection Details
-coll-description: "Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998. The collection was built from items held by the Potlatch Historical Society in 2016-2017. Items were also added via digitization days held in Potlatch in 2017 and 2018. " 
-coll-itemcount: 1450
-coll-mediatype: documents, images
-coll-location: Potlatch, Idaho
-coll-subjects: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture
-coll-latitude: 46.922281
-coll-longitude: -116.907683
-coll-timestart: 1880
-coll-timeend: 1998
-coll-image: http://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT=phs&CISOPTR=26&action=2&DMSCALE=100&DMWIDTH=2000&DMHEIGHT=2000&DMX=0&DMY=0&DMTEXT=&DMROTATE=0
-coll-imagelink: http://digital.lib.uidaho.edu/cdm/ref/collection/phs/id/26
-coll-imagetitle: Winter Logging
-coll-image2: http://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT=phs&CISOPTR=36&action=2&DMSCALE=100&DMWIDTH=2000&DMHEIGHT=2000&DMX=0&DMY=0&DMTEXT=&DMROTATE=0
-coll-imagelink2: http://digital.lib.uidaho.edu/cdm/ref/collection/phs/id/36
-coll-imagetitle2: Image 2
-coll-image3: http://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT=phs&CISOPTR=48&action=2&DMSCALE=100&DMWIDTH=2000&DMHEIGHT=2000&DMX=0&DMY=0&DMTEXT=&DMROTATE=0
-coll-imagelink3: http://digital.lib.uidaho.edu/cdm/ref/collection/phs/id/48
-coll-imagetitle3: Image 3
-coll-imagewidth: 621px
-coll-imageheight: 448px
-
+email: dbecker@uidaho.edu
 # Item Page Details
 
 # collection  display variables 
 # see _data/metadata-fields.csv
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
-# page_gen:
-#  - data: 'barstock' #should be the same as your csvtitle above
-#    template: 'items' 
-#    name: 'object-id' #name of the unique identifier in your metadata sheet
- #   dir: 'items' #which directory you'd like your pages generated to
-  #  extension: 'html'
+page_gen:
+  - data: 'phs' #should be the same as your csvtitle above
+    template: 'items' 
+    name: 'object-id' #name of the unique identifier in your metadata sheet
+    dir: 'items' #which directory you'd like your pages generated to
+    extension: 'html'

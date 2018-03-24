@@ -9,23 +9,23 @@
                 <li class="nav-item {% if page.url == "/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/" | relative_url }}">Home</a>
                 </li>
-                {% if site.menu contains "browse" %} <li class="nav-item {% if page.url == "/browse/" %} active{% endif %}">
+             <li class="nav-item {% if page.url == "/browse/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/browse/" | relative_url }}">Browse</a> 
-                </li>{% endif %}
-              {% if site.menu contains "items" %}   <li class="nav-item {% if page.url == "/items/" %} active{% endif %}">
-                    <a class="nav-link" href="{{ "/items/" | relative_url }}">Items</a>
-                </li>{% endif %}
-               {% if site.menu contains "map" %} <li class="nav-item {% if page.url == "/map/" %} active{% endif %}">
+                </li>
+            <li class="nav-item {% if page.url == "/subjects/" %} active{% endif %}">
+                    <a class="nav-link" href="{{ "/subjects/" | relative_url }}">Subjects</a>
+                </li>
+               {% if site.pagetypes contains "map" %} <li class="nav-item {% if page.url == "/map/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/map/" | relative_url }}">Map</a>
                 </li>{% endif %}
-              {% if site.menu contains "subjects" %}  <li class="nav-item {% if page.url == "/subjects/" %} active{% endif %}">
-                    <a class="nav-link" href="{{ "/subjects/" | relative_url }}">Subjects</a>
-                </li>{% endif %}
-               {% if site.menu contains "timeline" %} <li class="nav-item {% if page.url == "/timeline/" %} active{% endif %}">
+            {% if site.pagetypes contains "timeline" %} <li class="nav-item {% if page.url == "/timeline/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/timeline/" | relative_url }}">Timeline</a>
                 </li>{% endif %}
-              {% if site.menu contains "about" %}  <li class="nav-item {% if page.url == "/about/" %} active{% endif %}">
+              {% if site.pagetypes contains "about" %}  <li class="nav-item {% if page.url == "/about/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/about/" | relative_url }}">About</a>
+                </li>{% endif %}
+                {% if site.pagetypes contains "items" %}   <li class="nav-item {% if page.url == "/items/" %} active{% endif %}">
+                    <a class="nav-link" href="{{ "/items/" | relative_url }}">Items</a>
                 </li>{% endif %}
             </ul>
             <script>
