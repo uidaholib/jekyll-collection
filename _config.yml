@@ -10,7 +10,7 @@ keywords: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture
 menu: browse, subjects, map, items #options - [browse,items,map,subjects,timeline,about] -- recommend that you at least use browse and/or items AND subjects
 csvtitle: phs
 email: dbecker@uidaho.edu
-homepagetype: basic # options for homepage type [basic,infographic]
+homepagetype: infographic # options for homepage type [basic,infographic]
 
 # repository variables (leave blank if self-contained)
 repo-type: contentdm # options[contentdm,dspace,samvera,islandora,omeka]
