@@ -8,7 +8,7 @@ title: Potlatch Historical Society Collection
 tagline: Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998
 subjects: Idaho, Latah County, Potlatch, Forests, Labor, Agriculture #separate by comma(',')
 description: "Potlatch Historical Society Collection Depicting life in and around Potlatch, Idaho from 1880 to 1998. The collection was built from items held by the Potlatch Historical Society in 2016-2017. Items were also added via digitization days held in Potlatch in 2017 and 2018. " 
-mediatypes: documents, images #options[documents,images,video,sound,data] separate by comma(',')
+mediatypes: images #options[documents,images,video,sound,data] separate by comma(',')
 locations: Potlatch, Idaho; Harvard, Idaho #separate by semi-colon(';')
 latitude: 46.922281 #to determine center of map
 longitude: -116.907683 #to determine center of map
@@ -21,7 +21,7 @@ homepagetype: infographic # options for homepage type [basic,infographic]
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 
 repo-collection-id: phs
-repo-link: #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
+repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 
 email: dbecker@uidaho.edu
