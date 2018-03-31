@@ -11,7 +11,7 @@
             <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Number of Items</div>
   <div class="card-body">
-    <h5 class="card-title">{% for item in items %}{% if forloop.first %}{{ forloop.length }}{% endif %}{% endfor %}</h5>
+    <h5 class="card-title">{{ items | size }}</h5>
     </div>
 </div>
          <div class="card  mb-3" >
