@@ -11,20 +11,18 @@
             <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Number of Items</div>
   <div class="card-body">
-    <h5 class="card-title">{% for item in items %}{% if forloop.first %}{{ forloop.length }}{% endif %}{% endfor %}</h5>
+    <h5 class="card-title">{{ items | size }}</h5>
     </div>
 </div>
          <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Time Span</div>
   <div class="card-body">
     <h5 class="card-title">
-        
-       
+
           {% assign raw-dates = items | map: 'date' %}
-          <p>{% for date in raw-dates %}{{date}}, {% endfor %}</p>
-          {% capture clean-dates %}{% assign dates = raw-dates | split: "," %}{% for date in dates %}{% if date != "" %}{% if date contains "-" %}{{date | slice: 0, 4   }}{% elsif date contains "/"%}{{date   | slice: -5, 4 }}{% else %}{{date }}{% endif %}{% if d != forloop.last %},{% endif %}{% endif %}{%- endfor -%}{% endcapture %}
-          {%- assign dates = clean-dates | split: "," | sort  -%}
-         {% for date in dates %}{{date }}, {% endfor %}</h5>
+          {% capture clean-dates %}{% for date in raw-dates %}{% if date != "" %}{% if date contains "-" %}{{date | split: "-" | first }}{% elsif date contains "/" %}{{ date | split: "/" | last }}{% else %}{{ date }}{% endif %}{% unless forloop.last %};{% endunless %}{% endif %}{%- endfor -%}{% endcapture %}
+          {%- assign date-range = clean-dates | split: ";" | sort  -%}
+          from {{ date-range | first }} to {{ date-range | last }}.</h5>
     </div>
 </div>
 <div class="card  mb-3" >
