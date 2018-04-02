@@ -6,4 +6,4 @@ permalink: /about/
 
 # About {{ site.title }}
 
-site built with jekyll and metadata.
+{{site.description}}

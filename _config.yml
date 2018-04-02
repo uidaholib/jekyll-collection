@@ -14,13 +14,13 @@ latitude: 46.922281 #to determine center of map
 longitude: -116.907683 #to determine center of map
 
 # Site Population settings
-csvtitle: phs 
+csvtitle: bar-stock 
 pagetypes: subjects, map, items, timeline, about #options for pagetypes- [items,map,timeline,about] -- home, browse, and subjects are auotmatic
 homepagetype: infographic # options for homepage type [basic,infographic]
 
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: phs
+repo-collection-id: bar-stock
 repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 

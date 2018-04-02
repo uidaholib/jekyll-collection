@@ -10,7 +10,7 @@
 {% for item in items %}{% if item.lat-long %}
 {%- assign long-lat = item.lat-long | split: ";" | first | split: "," | reverse | join: "," -%}
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ long-lat }}] }, "properties":{ "title": {{ item.title | jsonify }}, "creator": {{ item.creator | jsonify }}, "date": {{ item.date | jsonify }}, "subjects": {{ item.subjects | jsonify}}, "id": {{ item.object-id | jsonify }} } }{% if forloop.last == false %}, {% endif %}
-    {%elsif item.latitude%}
+    {%elsif item.latitude contains "."%}
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{item.longitude }},{{item.latitude }}] }, "properties":{ "title": {{ item.title | jsonify }}, "creator": {{ item.creator | jsonify }}, "date": {{ item.date | jsonify }}, "subjects": {{ item.subjects | jsonify}}, "id": {{ item.object-id | jsonify }} } }{% if forloop.last == false %}, {% endif %}
     {% endif %}{% endfor %}
     ]};
