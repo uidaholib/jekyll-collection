@@ -3,6 +3,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <h3 class="navbar-toggler" data-toggle="collapse" ><a href="{{ site.baseurl }}/" style="color:white;">{{ site.title }}</a></h3>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -24,8 +25,8 @@
               {% if site.pagetypes contains "about" %}  <li class="nav-item {% if page.url == "/about/" %} active{% endif %}">
                     <a class="nav-link" href="{{ "/about/" | relative_url }}">About</a>
                 </li>{% endif %}
-                {% if site.pagetypes contains "items" %}   <li class="nav-item {% if page.url == "/items/" %} active{% endif %}">
-                    <a class="nav-link" href="{{ "/items/" | relative_url }}">Items</a>
+                {% if site.pagetypes contains "data" %}   <li class="nav-item {% if page.url == "/data/" %} active{% endif %}">
+                    <a class="nav-link" href="{{ "/data/" | relative_url }}">Data</a>
                 </li>{% endif %}
             </ul>
             <script>

@@ -15,8 +15,9 @@ longitude: -116.907683 #to determine center of map
 
 # Site Population settings
 csvtitle: bar-stock 
-pagetypes: subjects, map, items, timeline, about #options for pagetypes- [items,map,timeline,about] -- home, browse, and subjects are auotmatic
+pagetypes: map, data, timeline, about #options for pagetypes- [data,map,timeline,about] -- home, browse, and subjects are auotmatic
 homepagetype: infographic # options for homepage type [basic,infographic]
+datatable: title,creator,date,description,location,subjects # options basic [title,creator,date,description,location,subjects,latitude,longitude,format,type,object-id]
 
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 

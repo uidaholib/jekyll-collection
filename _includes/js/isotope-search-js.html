@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
         effect: "fadeIn",
         failure_limit: Math.max($imgs.length - 1, 0)
   });
-  $('img.lazy').on('appear',500, function(){  setTimeout(console.log("laz"), 100); container.isotope(), 200; });//fires this function when it appears});
+  $('img.lazy').on('appear',500, function(){  setTimeout(console.log("laz"), 2000); });//fires this function when it appears});
 
   // use value of search field to filter
    var $quicksearch = $('#goButton').click( function() {
