@@ -1,0 +1,5 @@
+---
+---
+{% assign items = site.data[site.csvtitle] %}{% assign tableheaders = site.datatable | split:',' %}{% for header in tableheaders %}{{header}},{%endfor%}object-id,link
+{% for item in items %}{% for header in tableheaders %}{{item[header]}},{%endfor%}{{item.object-id}},{% include item-link.html %}
+{%endfor%}

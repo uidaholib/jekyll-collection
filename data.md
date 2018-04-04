@@ -4,12 +4,11 @@ title: Data
 permalink: /data/
 ---
 {% assign items = site.data[site.csvtitle] %}
-
+{% include datadownload.html %}
 <!-- currently downloaded version of datatables is bundled with bootstrap and responsive and csv download extensions -->
-## Browse Items
+## Collection Data 
 
-This table provides sorting and basic search of the archive contents. 
-Click on the "Read" link to see the full document.
+The table below provides sorting and basic search of the archive contents. Use the download button at the top right to download the metadata and data building the collection. 
 
 <table id="item-table">
     <thead>
