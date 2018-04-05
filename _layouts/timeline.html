@@ -1,0 +1,28 @@
+---
+layout: page
+---
+{{ content }}
+<style>
+    th, td {
+    border-bottom: 1px solid #ddd;
+    padding:10px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: #ccc;}
+</style>
+{% assign items = site.data[site.csvtitle] %}
+{% assign raw-dates = items | map: 'date' %}
+          {% capture clean-dates %}{% for date in raw-dates %}{% if date != "" %}{% if date contains "-" %}{{date | split: "-" | first }}{% elsif date contains "/" %}{{ date | split: "/" | last }}{% else %}{{ date }}{% endif %}{% unless forloop.last %};{% endunless %}{% endif %}{%- endfor -%}{% endcapture %}
+          {%- assign date-range = clean-dates | split: ";" | sort  -%}
+<h3><a href="#{{ date-range | first }}">{{ date-range | first }}</a> to <a href="#{{ date-range | last }}">{{ date-range | last }}</a></h3>
+
+{%- assign uniqueDates = date-range | uniq | sort -%}
+
+<table>
+  {%for date in uniqueDates %}
+  <tr>
+<td><h2><span id="{{date}}">{{date}}</span></h2></td><td>{%for item in items %} {% if item.date contains {{date}} %}<a href="{%include item-link.html %}" target="blank"><img class="lazy" data-original="{%include image/thumb.html %}" style="margin:10px;" alt="{{item.title}}"  title="{{item.title}}"/></a>{% endif %} 
+    {%endfor%}</td>
+  </tr>
+  {%endfor%}
+ </table>

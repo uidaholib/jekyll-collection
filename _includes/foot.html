@@ -3,16 +3,20 @@
 <script src="{{ "/assets/js/popper.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
 <script>$('.carousel').carousel()</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-    });
-</script>
 <!-- load other js -->
 {% if page.layout == "table" %}{% include js/table-js.html %}{% endif %}
 {% if page.layout == "map" %}{% include js/map-js.html %}{% endif %}
 {% if page.layout == "subjects" %}{% include js/subjects-js.html %}{% endif %}
 {% if page.layout == "isotope" %}{% include js/isotope-js.html %}{% endif %}
 {% if page.layout == "isotope-search" %}{% include js/isotope-search-js.html %}{% endif %}
+{% if page.layout == "timeline" %}<script src="{{ "/assets/js/jquery.lazyload.js" | relative_url }}"></script>
+<script>
+
+    var $imgs = $("img.lazy");
+    // Lazy Load images when they appear in DOM
+ $imgs.lazyload({ 
+       effect: "fadeIn",
+       failure_limit: Math.max($imgs.length - 1, 0)
+ });
+</script>
+{% endif %}

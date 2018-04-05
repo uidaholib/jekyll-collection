@@ -1,9 +1,7 @@
 ---
-layout: page
+layout: timeline
 title: Timeline
 permalink: /timeline/
 ---
-
 ## Item timeline
 
-i guess.
