@@ -18,19 +18,18 @@
   <div class="card-header bg-transparent ">Time Span</div>
   <div class="card-body">
     <h5 class="card-title">
-
-          {% assign raw-dates = items | map: 'date' %}
+          {% assign raw-dates = items | map: 'date' | compact %}
           {% capture clean-dates %}{% for date in raw-dates %}{% if date != "" %}{% if date contains "-" %}{{date | split: "-" | first }}{% elsif date contains "/" %}{{ date | split: "/" | last }}{% else %}{{ date }}{% endif %}{% unless forloop.last %};{% endunless %}{% endif %}{%- endfor -%}{% endcapture %}
           {%- assign date-range = clean-dates | split: ";" | sort  -%}
-          {{ date-range | first }} to {{ date-range | last }}.</h5>
+          {{ date-range | first }} to {{ date-range | last }}</h5>
     </div>
 </div>
 <div class="card  mb-3" >
   <div class="card-header bg-transparent ">Subjects</div>
   <div class="card-body">
-    <h5 class="card-title">{% assign subjects = site.subjects | split:',' %}
+    <h5 class="card-title">{% assign subjects = site.subjects | split:';' %}
         {% for subject in subjects %}
-    <a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="{% if site.pagetypes contains "browse"%}browse/#{{ subject }}{%else%}{{ "/subjects/" | relative_url }}{%endif%}">{{ subject }}</a> 
+    <a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="{% if site.pagetypes contains "browse"%}browse/#{{ subject }}{%else%}{{ "/browse/" | relative_url }}{%endif%}#{{ subject | trim }}">{{ subject }}</a> 
                      {% endfor %} </h5>
     </div>
 </div>
@@ -58,19 +57,38 @@
          {% endif %}
     </p>
      </div>
-</div>  
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+</div>
+{% if site.mediatypes != "images" %} 
+
+<div class="card  mb-3 " >
+    <div class="card-header bg-transparent ">Sample Items</div>
+<div class="row mx-auto">
+  {% for i in (1..9) %}
+  <div class="card  m-2 col-md-4 mx-auto" >
+      <div class="card-body text-center">
+        <a id="itemlink{{ forloop.index }}" href="">
+      <img id="thumb{{ forloop.index }}" class="mx-auto" src="" />
+    </a>
+    <!-- Text Overlay -->
+  
+  </div>
+     </div> 
+{%endfor%}
+</div>
+</div>
+{% else %}
+<div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
   <ol class="carousel-indicators">
-      {% for i in (1..5) %}
+      {% for i in (1..9) %}
     <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index }}" class="{% if forloop.first %}active{% endif %}"></li>
     {% endfor %} 
   </ol>
   <div class="carousel-inner">
-      {% for i in (1..5) %}
+      {% for i in (1..9) %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
   <img id="car-image{{ forloop.index }}" src="" style="width:100%" alt="Image Highlight">
   <div class="carousel-caption ">
-    <h5><a target="_blank" id="car-imagelink{{ forloop.index }}" href="" class="btn btn-sm btn-info">Go to Image</a></h5>
+    <h5><a target="_blank" id="itemlink{{ forloop.index }}" href="" class="btn btn-sm btn-info">Go to Image</a></h5>
   </div>
 </div>
 {% endfor %} 
@@ -84,6 +102,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+{% endif %}
 </div>
 {% include js/carousel-js.html %}
 <div class=" col-md-12 col-sm-12">
@@ -91,11 +110,12 @@
   <div class="card-header bg-transparent ">Media Type</div>
   <div class="card-body">
     <h5 class="card-title">{{site.mediatypes}}</h5>
-    <p>{% for item in items %} {% if item.type contains "image" %}<i class="far fa-image"></i> 
-    {% elsif item.type contains "Text" %}<i class="far fa-file"></i> 
+    <p>{% for item in items %}<a href="{%include item-link.html%}" title="{{item.title | escape}}">
+      {% if item.type contains "image" %}<i class="far fa-image"></i> 
+    {% elsif item.type contains "text" %}<i class="far fa-file"></i>
     {% elsif item.type contains "sound" %}<i class="far fa-file-audio"></i> 
     {% elsif item.type contains "video" %}<i class="far fa-file-video"></i>
-    {% endif %}
+    {% endif %}</a>
     {% endfor %}</p>
     </div>
 </div>

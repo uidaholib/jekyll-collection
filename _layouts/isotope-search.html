@@ -6,27 +6,29 @@ layout: page
   .item{padding:10px;}
   .card{padding:4px;}
 </style>
-<p class="text-center">
+<h2 class="text-center">
 <input type="text" id="quicksearch" placeholder="Search ... "> 
-<input class="btn btn-success" title="Search" type="submit" value="Go" alt="Search" id="goButton" > 
-<a class="btn btn-secondary btn-sm filter" href="#" data-filter="">Reset Search</a> <br class="hidden-md-up"> 
+<input class="btn btn-success btn-lg align-top" title="Search" type="submit" value="Go" alt="Search" id="goButton" > 
+<a class="btn btn-secondary  filter" href="#" data-filter="">Reset Search</a> <br class="hidden-md-up"> 
 {% for item in items %}
  {% if forloop.first %}
-<span class="info2"><span id="numberof">{{ forloop.length }}</span> of {{ forloop.length }} items</span> </p>
+<span class="info2"><span id="numberof">{{ forloop.length }}</span> of {{ forloop.length }} items</span> </h2>
 {% endif %}
 {% endfor %}
 <div class="grid" id="isocontainer">
     {% for item in items %}
     <div class="item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12" >
-        {% if forloop.index < 20 %}<img class="card-img-top lazy"  src="{% include image/small.html %}" alt="Card image cap">
-        {% else %} <img class="card-img-top lazy"  data-original="{% include image/small.html %}" alt="Card image cap"> {% endif %}
+            {% if item.type contains "image" %}
+            <a target="_blank" href="{% include item-link.html %}">{% if forloop.index < 20 %}<img class="card-img-top lazy"  src="{% include image/small.html %}" alt="Card image cap">
+        {% else %} <img class="card-img-top lazy"  data-original="{% include image/small.html %}" alt="Card image cap"> {% endif %}</a>
+        {% endif %}
         <div class="card text-center">
         <h3 class="card-title">{{ item.title }} </h3>
         <p class="card-text"><b>Date</b>:{{item.date}}</p>
-         <!--  <p >
+        {% unless item.type contains "image" %}<p >
      <a  target="_blank" href="{% include item-link.html %}">
       <img class="card-img-top thumb lazy" data-original="{% include image/thumb.html %}" alt="item thumbnail">
-     </a></p>-->
+     </a></p> {% endunless %}
      <p >
     {% assign subjects = item.subjects | split:';' %}
         {% for subject in subjects %}
