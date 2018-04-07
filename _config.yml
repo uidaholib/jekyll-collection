@@ -4,22 +4,22 @@
 # JEKYLL_ENV=production jekyll build
 
 # Site/Collection settings
-title: Dworshak Dam Collection
-tagline: Documenting the Development and Construction of the Doworshak Dam, 1952 - 1975
-subjects: Dams; Construction; Water; Northwest; Idaho; Maps; #separate by semi-colon(';')
-description: "Digitized photographs and documents pertaining to the planning, development and construction of the Dworshak Dam, featuring documents and photographs detailing both the legislative and physical development of the dam." 
-mediatypes: documents; images #options[documents,images,video,sound,data] separate by semi-colon(';')
-locations: Dworshak Dam, Idaho #separate by semi-colon(';')
-latitude: 46.515697 #to determine center of map
-longitude: -116.296881 #to determine center of map
+title: Arbor Notes Collection
+tagline: A Newsletter of the (University of Idaho) Arboretum Associates 
+subjects: UI;Campus #separate semi-colon(';')
+description: "A collection of newsletters pertaining to the University of Idaho's Arboretum and Botanical Garden, including reports, gardening tips, and other information." 
+mediatypes: documents #options[documents,images,video,sound,data] separate semi-colon(';')
+locations: Moscow, ID (Arboretum) #separate by semi-colon(';')
+latitude: 46.722532 #to determine center of map
+longitude: -117.014779 #to determine center of map
 
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: dworshak
+repo-collection-id: arbornotes
 repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 # Site Population settings
-csvtitle: dworshak
+csvtitle: arbornotes
 pagetypes: data,map,timeline,about #options for pagetypes- [data,map,timeline,about] -- home, browse, and subjects are auotmatic
 subjectsplit: words # options[subjects - whole subjects, including two word entries separted by semi-colon; words - breaks all subjects into individual words]
 mapzoomlevel: 10 # options - 
@@ -35,7 +35,7 @@ email: dbecker@uidaho.edu
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
-  - data: 'dworshak' #should be the same as your csvtitle above
+  - data: 'arbornotes' #should be the same as your csvtitle above
     template: 'items' 
     name: 'object-id' #name of the unique identifier in your metadata sheet
     dir: 'items' #which directory you'd like your pages generated to

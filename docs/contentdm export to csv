@@ -1,0 +1,4 @@
+IT's kind of a pain to generate csvs from contentdm. Generating custom xml files, however, is much easier. 
+
+One convoluted way to get csv is then to generate a custom xml file, then use something like: 
+https://codebeautify.org/xml-to-csv-converter online. 
