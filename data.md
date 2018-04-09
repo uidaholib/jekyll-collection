@@ -10,7 +10,7 @@ permalink: /data/
 ## Collection Data 
 
 The table below provides sorting and basic search of the archive contents. Use the download button at the top right to download the entire metadata spreadsheet building the collection. Use the "CSV" button below to download the metadata you see on the page.  
-<table id="item-table">
+<table id="item-table table-striped">
     <thead>
         <tr>
         {% assign tableheaders = site.datatable | split:',' %}

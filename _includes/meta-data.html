@@ -1,0 +1,16 @@
+{% assign items = site.data[site.csvtitle] %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+        {% assign metadata = site.datatable | split:',' %}
+        {% for meta in metadata %}
+        <li class="nav-item">
+            <a class="nav-link {% if forloop.first %}active{%endif%} "  data-toggle="tab" id="{{meta}}-tab" data-toggle="tab" href="#{{meta}}" role="tab" aria-controls="home" aria-selected="true">{{meta | capitalize}}</a>
+              </li>{%endfor%}</ul><div class="tab-content" id="myTabContent">{% for meta in metadata %}
+            <div class="tab-pane fade show {% if forloop.first %}active{%endif%}" id="{{meta}}" role="tabpanel" aria-labelledby="{{meta}}-tab">
+                    <svg class="chart" width="100%" height="1000">
+                            {% for item in items %} <g transform="translate(0,{{forloop.index | times: 5}})">
+                            <a href="{{ "/browse/" | relative_url }}#{{item.title}}"><rect width="{{item[meta] | size}}" height="5" title="{{item[meta]}}"></rect></a>
+                              </g>{%endfor%}
+                 </svg> 
+            </div>
+                 {%endfor%}
+         </div>

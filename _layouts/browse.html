@@ -8,7 +8,7 @@ layout: page
 </style>
 <h2 class="text-center">
 <input type="text" id="quicksearch" placeholder="Search ... " > 
-<input class="btn btn-success btn-lg align-top" title="Search" type="submit" value="Go" alt="Search" id="goButton" onclick="myFunction()"> 
+<input class="btn btn-success btn-lg align-top" title="Search" type="submit" value="Go" alt="Search" id="goButton" onclick="filterItems()"> 
 <a class="btn btn-secondary  filter" href="#" data-filter="">Reset Search</a> <br class="hidden-md-up"> 
 {% for item in items %}
  {% if forloop.first %}
@@ -32,7 +32,7 @@ layout: page
      <p >
     {% assign subjects = item.subjects | split:';' %}
         {% for subject in subjects %}
-        <a class="filter btn btn-sm btn-secondary" data-filter="{{ subject }}" href="#{{ subject }}">{{ subject }}</a> 
+        <a class="filter btn btn-sm btn-secondary" data-filter="{{ subject | trim }}" href="#{{ subject | trim }}">{{ subject }}</a> 
                      {% endfor %} 
                      </p>
          <p class="card-text">{{item.description | truncatewords: 20}}</p>
