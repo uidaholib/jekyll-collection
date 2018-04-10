@@ -6,7 +6,7 @@
 <!-- load other js -->
 {% if page.layout == "data" %}{% include js/data-js.html %}{% endif %}
 {% if page.layout == "map" %}{% include js/map-js.html %}{% endif %}
-{% if page.layout == "subjects" %}{% if site.subjectsplit == "words" %}{% include js/words-js.html %}{% else %}{% include js/subjects-js.html %}{% endif %}{% endif %}
+{% if page.layout == "subjects" %}{% include js/subjects-js.html %}{% endif %}
 {% if page.layout == "browse" %}{% include js/browse-js.html %}{% endif %}
 {% if page.layout == "timeline" %}<script src="{{ "/assets/js/jquery.lazyload.js" | relative_url }}"></script>
 <script>
