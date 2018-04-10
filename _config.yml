@@ -4,32 +4,37 @@
 # JEKYLL_ENV=production jekyll build
 
 # Site/Collection settings
-title: Dworshak Dam Collection
-tagline: Documenting the Development and Construction of the Doworshak Dam, 1952 - 1975
-subjects: Dams; Construction; Water; Northwest; Idaho; Maps; #separate semi-colon(';')
-description: "Digitized photographs and documents pertaining to the planning, development and construction of the Dworshak Dam, featuring documents and photographs detailing both the legislative and physical development of the dam." 
-mediatypes: documents; correspondence; images #options[documents,images,video,sound,data] separate semi-colon(';')
-locations: Dworshak Dam, Idaho #separate by semi-colon(';')
-latitude: 46.515697 #to determine center of map
-longitude: -116.296881 #to determine center of map
+title: Edward John Iddings Lantern Slides, 1927
+tagline: Slides from longtime College of Agriculture Dean, Edward John Iddings, including university-, agriculture-, and travel-related images
+subjects: UI; Agriculture; #separate semi-colon(';')
+description: "Edward John Iddings was the Dean of the College of Agriculture at UI from 1915 to 1946. These slides depict agricultural and university-related scenes from Idaho, as well as images from Iddings' travels." 
+mediatypes: images #options[documents,images,video,sound,data] separate semi-colon(';')
+locations: Moscow, ID (Admin building) #separate by semi-colon(';')
+latitude: 46.727874 #to determine center of map
+longitude: -117.028127 #to determine center of map
 
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: dworshak
+repo-collection-id: spec_ji
 repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 # Site Population settings
-csvtitle: dworshak
+csvtitle: spec_ji
 pagetypes: data,map,timeline,about #options for pagetypes- [data,map,timeline,about] -- home, browse, and subjects are auotmatic
-subjectsplit: subjects # options[subjects - whole subjects, including two word entries separted by semi-colon; words - breaks all subjects into individual words]
+subjectsplit: words # options[subjects - whole subjects, including two word entries separted by semi-colon; words - breaks all subjects into individual words]
 mapzoomlevel: 10 # options - 
 homepagetype: infographic # options for homepage type [basic,infographic]
 datatable: title,creator,description,date,subjects,source # options any field on csv [title,creator,date,description,location,subjects,latitude,longitude,format,type,object-id]
 
+# url variables
+# url: https://www.lib.uidaho.edu/digital/
+# baseurl: /spec_ji
+email: dbecker@uidaho.edu
 
 # url variables
 url: https://dcnb.github.io
 baseurl: /jekyll-collection-contentdm
+
 email: dbecker@uidaho.edu
 # Item Page Details
 
@@ -38,7 +43,7 @@ email: dbecker@uidaho.edu
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
-  - data: 'dworshak' #should be the same as your csvtitle above
+  - data: 'spec_ji' #should be the same as your csvtitle above
     template: 'items' 
     name: 'object-id' #name of the unique identifier in your metadata sheet
     dir: 'items' #which directory you'd like your pages generated to
