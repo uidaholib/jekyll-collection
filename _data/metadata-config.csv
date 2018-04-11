@@ -1,14 +1,12 @@
 field,display-name
 title,Title
-author,Author
-reader,Reader,
-creatortype,Creator Type
+creator,Creator
 date,Date
-keywords,Keywords
 description,Description
-grade,Grade-Level
-identifier,ID
+subjects,Subjects
+source, Source
+orig-id, Original ID
+rights, Rights
 format,Format
 type,Type
-link,Link
-id,id
+object-id, ID
