@@ -13,9 +13,9 @@ tr:hover {background-color: #666;}
 </style>
 {% assign items = site.data[site.csvtitle] %}
 {% include array/years.html %}
-<h3><a href="#{{ date-range | first }}">{{ years | first }}</a> to <a href="#{{ date-range | last }}">{{ years | last }}</a></h3>
+<h3><a href="#{{ years | first }}">{{ years | first }}</a> to <a href="#{{ years | last }}">{{ years | last }}</a></h3>
 
-{%- assign uniqueDates = date-range | uniq | sort -%}
+{%- assign uniqueDates = years | uniq | sort -%}
 
 <table>
   {%for date in uniqueDates %}
