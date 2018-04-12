@@ -5,8 +5,8 @@ layout: default
 
 <div class="container">
     <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ "/" | absolute_url }}">IWDL</a></li>
-        <li class="breadcrumb-item"><a href="{{ "/items/" | absolute_url }}">Items</a></li>
+        <li class="breadcrumb-item"><a href="{{ "/" | absolute_url }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ "/browse/" | absolute_url }}">Items</a></li>
         <li class="breadcrumb-item active">{{ page.title | truncatewords: 5 }}</li>
     </ul>
 
@@ -16,39 +16,32 @@ layout: default
 
     <div class="row">
 
-        <div class="card col-md-4" >
-         <img class="card-img-top thumb" src="{% include image/thumb.html %}" alt="item thumbnail">
+        <div class="card col-md-6" >
+            {% assign lowercase_type = page.type | downcase %} {% if lowercase_type contains "image" %}
+            <p>Click image to view in full resolution</p>
+            <a target="_blank" href="{% include download/image.html %}"><img class="card-img-top" src="{% include image/medium.html %}" alt="item thumbnail" title="image of item: {{page.title}}"></a>
+            {%else %}<img class="card-img-top thumb text-centered mx-auto" src="{% include image/thumb.html %}" alt="item thumbnail">{% endif %}
             <div class="card-body">
-{% if page.format contains "pdf" %}<a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
-{% elsif page.format contains "image" %}<a target="_blank" href="{% include download/image.html %}">View Image in New Tab</a>
-{% elsif page.format contains "mp3" %}<a target="_blank" href="{% include download/mp3.html %}">Download MP3</a>
-{% else %}
-{% endif %}
+                    {% if page.format contains "pdf" %}<a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
+                    {% elsif page.format contains "mp3" %}<a target="_blank" href="{% include download/mp3.html %}">Download MP3</a>
+                    {% else %}{% endif %}
+                    <h3>More Like This</h3>
+                    {% assign subjects = page.subjects | split:';'%}
+                         {% for subject in subjects %}{% if subject != " "%}
+                         <a class="btn btn-lg btn-secondary vocab {{ subject | strip }}"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
+                         {% endif %}  {% endfor %} 
             </div>
         </div>
-        <div class=" card col-md-8">
+        <div class=" card col-md-6">
             <div class="card-body metadata">
-                <ul>
-                    {% for f in fields %}{% if page[f.field] %}<li><span class="field">{{ f.display-name }}:</span> <span class="field-value">{{ page[f.field] }}</span></li>{% endif %}
+                <ul class="list-group">
+                    {% for f in fields %}{% if page[f.field] %}<li class="list-group-item"><strong>{{ f.display-name }}:</strong> {{ page[f.field] }}</li>{% endif %}
                     {% endfor %}
                 </ul>
             </div>
         </div> 
     </div>
-    <div class="row">
-        <div class="card">
-            <div class="card-header">
-                Related
-            </div>
-            <div class="card-body">
-              
-                <p>subjects, series, collection links</p>
-                {% assign subjects = page.subjects | split:';' %}
-                     {% for subject in subjects %}
-                     <a class="vocab {{ subject | strip }}"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
-                     {% endfor %} 
-            </div>
-        </div>
+   
     </div>
 
     <div class="back-button">

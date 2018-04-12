@@ -25,12 +25,11 @@
     </div>
 </div>
 <div class="card  mb-3" >
-  <div class="card-header bg-transparent ">Subjects</div>
+  <div class="card-header bg-transparent ">Top Subjects</div>
   <div class="card-body">
-    <h5 class="card-title">{% assign subjects = site.subjects | split:';' %}
-        {% for subject in subjects %}
-    <a class="filter btn btn-sm btn-info" data-filter="{{ subject }}" href="{% if site.pagetypes contains "browse"%}browse/#{{ subject }}{%else%}{{ "/browse/" | relative_url }}{%endif%}#{{ subject | trim }}">{{ subject }}</a> 
-                     {% endfor %} </h5>
+    <h5 class="card-title"> <span id="topsubjects"></span> </h5>
+        {% include array/subject-words.html %}
+        {% include js/topsubjects-js.html %}
     </div>
 </div>
 {% if site.locations%}
@@ -70,7 +69,6 @@
       <img id="thumb{{ forloop.index }}" class="mx-auto" src="" />
     </a>
     <!-- Text Overlay -->
-  
   </div>
      </div> 
 {%endfor%}
@@ -110,11 +108,14 @@
   <div class="card-header bg-transparent ">Media Type</div>
   <div class="card-body">
     <h5 class="card-title">{{site.mediatypes}}</h5>
-    <p>{% for item in items %}<a href="{%include item-link.html%}" title="{{item.title | escape}}">
-      {% if item.type contains "image" %}<i class="far fa-image"></i> 
-    {% elsif item.type contains "text" %}<i class="far fa-file"></i>
-    {% elsif item.type contains "sound" %}<i class="far fa-file-audio"></i> 
-    {% elsif item.type contains "video" %}<i class="far fa-file-video"></i>
+    
+    <p>{% for item in items %}
+        {% assign lowercase_type = item.type | downcase %}
+        <a href="{%include item-link.html%}" title="{{item.title | escape}}">
+      {% if lowercase_type contains "image" %}<i class="far fa-image"></i> 
+    {% elsif lowercase_type contains "text" %}<i class="far fa-file"></i>
+    {% elsif lowercase_type  contains "sound" %}<i class="far fa-file-audio"></i> 
+    {% elsif lowercase_type contains "video" %}<i class="far fa-file-video"></i>
     {% endif %}</a>
     {% endfor %}</p>
     </div>

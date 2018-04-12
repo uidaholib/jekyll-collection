@@ -22,12 +22,11 @@
     shuffle(objectids);
     console.log(objectids);
     {% for i in (1..9) %}
-itemlink{{ i }}.href = '{{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/'+objectids[{{ i }}];
+itemlink{{ i }}.href = '{% if site.repo-link == "on" %}{{ site.repo-url }}/cdm/ref/collection/{{ site.repo-collection-id }}/id/'+objectids[{{ i }}{% else %}{{ site.baseurl }}/items/'+objectids[{{ i }}]+'.html'{% endif %};
 {% if site.mediatypes != "images" %} 
 thumb{{ i }}.src = '{{ site.repo-url }}/utils/getthumbnail/collection/{{ site.repo-collection-id }}/id/'+objectids[{{ i }}];
 {%else%}
 image{{ i }}.src = 'https://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT={{ site.repo-collection-id }}&CISOPTR='+objectids[{{ i }}]+'&action=2&action=2&DMSCALE={{site.image-percentage-medium}}&DMWIDTH=1012&DMHEIGHT=1048&DMX=0&DMY=0&DMTEXT=&DMROTATE=0';{%endif%}
     {% endfor %}
-
-    
+   
 </script>
