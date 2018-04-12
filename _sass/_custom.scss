@@ -1,8 +1,7 @@
 .thumb
 {    max-width: 80px;
     box-shadow: 2px 2px 2px grey;}
-.center{text-align:center;}
-.btn-sm{margin: 2px;}
+
 .container {
     width: 100%;
     padding-right: 15px;
@@ -69,4 +68,8 @@ body {
         fill: white;
         font: 10px sans-serif;
         text-anchor: end;
+      }
+
+      body{
+          font-family: 'oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }

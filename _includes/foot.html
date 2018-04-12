@@ -2,8 +2,8 @@
 <script src="{{ "/assets/js/jquery-3.3.1.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/popper.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
-<script>$('.carousel').carousel()</script>
 <!-- load other js -->
+{% if page.title == "Home" %}<script>$('.carousel').carousel()</script>{% endif %}
 {% if page.layout == "data" %}{% include js/data-js.html %}{% endif %}
 {% if page.layout == "map" %}{% include js/map-js.html %}{% endif %}
 {% if page.layout == "subjects" %}{% include js/subjects-js.html %}{% endif %}

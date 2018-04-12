@@ -2,9 +2,8 @@
 layout: default
 title: Home
 ---
-{% assign homepagetype = site.homepagetype %}
-{% capture homepagetypestring %}home-{{homepagetype | trim}}.html{%endcapture%}
-{% include {{homepagetypestring}} %}
+
+{% include home-infographic.html %}
 
 <div class="container">
     

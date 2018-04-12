@@ -17,19 +17,26 @@ layout: default
     <div class="row">
 
         <div class="card col-md-6" >
-            {% assign lowercase_type = page.type | downcase %} {% if lowercase_type contains "image" %}
+            {% assign lowercase_type = page.type | downcase %}{% if lowercase_type contains "image" %}
             <p>Click image to view in full resolution</p>
             <a target="_blank" href="{% include download/image.html %}"><img class="card-img-top" src="{% include image/medium.html %}" alt="item thumbnail" title="image of item: {{page.title}}"></a>
-            {%else %}<img class="card-img-top thumb text-centered mx-auto" src="{% include image/thumb.html %}" alt="item thumbnail">{% endif %}
-            <div class="card-body">
-                    {% if page.format contains "pdf" %}<a target="_blank" href="{% include download/pdf.html %}">Download PDF</a>
-                    {% elsif page.format contains "mp3" %}<a target="_blank" href="{% include download/mp3.html %}">Download MP3</a>
+            {%else %}<a class="text-center mx-auto" target="_blank" href="{% if page.format contains "pdf" %}{% include download/pdf.html %}{% elsif page.format contains "mp3" %}{% include download/mp3.html %}{% endif %}">
+            <img class="thumb" src="{% include image/thumb.html %}" alt="item thumbnail"></a>{% endif %}
+            <div class="card-body text-center">
+                    {% if page.format contains "pdf" %}
+                    <a target="_blank" class="btn btn-primary" href="{% include download/pdf.html %}">Download PDF</a><br/><br/>
+                    <a target="_blank" class="btn btn-primary" href="{% include pageflip-link.html %}">Page-Flip Version</a>
+                    {% elsif page.format contains "mp3" %}
+                    <a target="_blank" class="btn btn-primary" href="{% include download/mp3.html %}">Download MP3</a>
                     {% else %}{% endif %}
-                    <h3>More Like This</h3>
+                    <br/><hr/><br/>
+                    <h4>More Like This</h4>
+                    <div class="row">
                     {% assign subjects = page.subjects | split:';'%}
                          {% for subject in subjects %}{% if subject != " "%}
-                         <a class="btn btn-lg btn-secondary vocab {{ subject | strip }}"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
+                         <a class="btn btn-outline-secondary m-2"  href="../browse/#{{ subject | strip }}">{{ subject }}</a>
                          {% endif %}  {% endfor %} 
+                        </div>
             </div>
         </div>
         <div class=" card col-md-6">
@@ -44,7 +51,5 @@ layout: default
    
     </div>
 
-    <div class="back-button">
-        <a href="{{ "/items/" | relative_url }}">❮ Back to Collection Items</a>
-    </div>
+
 </div>

@@ -32,7 +32,7 @@ layout: page
      <p >
     {% assign subjects = item.subjects | split:';' %}
         {% for subject in subjects %}{% if subject !=" " %}
-        <a class="filter btn btn-sm btn-secondary" data-filter="{{ subject | trim }}" href="#{{ subject | trim }}">{{ subject }}</a> 
+        <a class="btn btn-sm btn-secondary m-1" data-filter="{{ subject | trim }}" href="#{{ subject | trim }}">{{ subject }}</a> 
         {% endif %}{% endfor %} 
                      </p>
          <p class="card-text">{{item.description | truncatewords: 20}}</p>
