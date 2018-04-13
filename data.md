@@ -25,7 +25,7 @@ The table below provides sorting and basic search of the archive contents. Use t
             <td class="{{header}}">{{item[header]}}</td>
             {% endif%}
           {%endfor%}
-        <td><a class="btn btn-secondary btn-sm" target="_blank" {% if item.type contains "text" %} href="{% include download/pdf.html %}">Download<br/>PDF</a>{% elsif item.format contains "image" %}href="{% include download/image.html %}">Download<br/>Image</a>{% elsif item.format contains "mp3" %} href="{% include download/mp3.html %}">Download<br/>MP3</a>{% else %}{% endif %}
+        <td><a class="btn btn-secondary btn-sm" target="_blank" {% if item.format contains "pdf" %} href="{% include download/pdf.html %}">Download<br/>PDF</a>{% elsif item.format contains "image" %}href="{% include download/image.html %}">Download<br/>Image</a>{% elsif item.format contains "mp3" %} href="{% include download/mp3.html %}">Download<br/>MP3</a>{% else %}{% endif %}
      </td>
         </tr>
 {% endfor %}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-md " id="navbar">
+<nav class="navbar {%if site.navbar%}navbar-{{site.navbar}} bg-{{site.navbar}}{%else%}navbar-dark bg-dark{%endif%} navbar-expand-md " id="navbar">
     <div class="container">
             <h3 class="navbar-toggler" data-toggle="collapse" style="border: none;
             font-size: 20px;float:left;"><a href="{{ site.baseurl }}/" style="color:white;">{{ site.title }}</a></h3>
@@ -36,12 +36,13 @@
                 </li>{% endif %}
             </ul>
             <script>
-                function google_search() {
-                    var query = document.getElementById("google-search").value;
-                    window.open("{{ '/search/index.html' | absolute_url }}?q=" + query, "_self" );
-                }
-            </script>
-            <form class="form-inline my-2 my-lg-0" role="search" id="search" onsubmit="google_search(); return false;">
+
+                    function cdm_search() {
+                        var query = document.getElementById("nav-search").value;
+                        window.open("{{ site.repo-url }}/cdm/search/collection/{{ site.repo-collection-id }}/searchterm/" + encodeURI(query) + "/field/all/mode/all/conn/and/order/title/ad/asc", "_blank" );
+                    }
+                </script>
+            <form class="form-inline my-2 my-lg-0" role="search" id="search" onsubmit="cdm_search(); return false;">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
