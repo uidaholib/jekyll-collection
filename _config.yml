@@ -29,7 +29,7 @@ image-percentage-medium: 50
 image-percentage-large: 80
 
 # bootstrap themes and options 
-navbar: primary # [dark (default),light, primary]
+navbar: dark # [dark (default),light, primary]
 bstheme: Materia # leave blank or comment out for plain bootstrap
 # For a bootswatch theme (https://bootswatch.com/) choose from any of the bootswatch themes listed below
 # [Cerulean,Cosmo,Cyborg,Darkly,Flatly,Journal,Litera,Lumen,Lux,Materia,Minty,Pulse,Sandstone,Simplex,Sketchy,Slate,Solar,Spacelab,Superhero,United,Yeti]
