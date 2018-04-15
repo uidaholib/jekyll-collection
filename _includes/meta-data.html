@@ -6,7 +6,7 @@
             <a class="nav-link {% if forloop.first %}active{%endif%} "  data-toggle="tab" id="{{meta}}-tab" data-toggle="tab" href="#{{meta}}" role="tab" aria-controls="home" aria-selected="true">{{meta | capitalize}}</a>
               </li>{%endfor%}</ul><div class="tab-content" id="myTabContent">{% for meta in metadata %}
             <div class="tab-pane fade show {% if forloop.first %}active{%endif%}" id="{{meta}}" role="tabpanel" aria-labelledby="{{meta}}-tab">
-                    <svg class="chart" width="100%" height="{% for item in items %}{{forloop.length}}{%endfor%}">
+                    <svg class="chart" width="100%" height="{{ items | size | times: 7}}">
                             {% for item in items %} <g transform="translate(0,{{forloop.index | times: 5}})">
                             <a href="{{ "/browse/" | relative_url }}#{{item.title}}"><rect width="{{item[meta] | size}}" height="5" title="{{item[meta]}}"></rect></a>
                               </g>{%endfor%}
