@@ -1,0 +1,52 @@
+<!-- All collections modal -->
+<div class="modal fade" id="collections" tabindex="-1" role="dialog" aria-labelledby="digital" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="digital"><a href="https://www.lib.uidaho.edu/digital/">UIdaho Library Digital Initiatives</a></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+<div class="searchall_drop" style="">
+<form action="https://digital.lib.uidaho.edu/cdm4/results.php" method="get">
+<input type="hidden" value="all" name="CISOOP1">
+<input type="text" size="20" name="CISOBOX1" style="font-size:12px;" placeholder=" Search all items ...">
+<input type="hidden" value="CISOSEARCHALL" name="CISOFIELD1">
+<input type="hidden" value="exact" name="CISOOP2">
+<input type="hidden" value="" name="CISOBOX2">
+<input type="hidden" value="CISOSEARCHALL" name="CISOFIELD2">
+<input type="hidden" value="any" name="CISOOP3">
+<input type="hidden" value="" name="CISOBOX3">
+<input type="hidden" value="CISOSEARCHALL" name="CISOFIELD3">
+<input type="hidden" value="none" name="CISOOP4">
+<input type="hidden" value="" name="CISOBOX4">
+<input type="hidden" value="CISOSEARCHALL" name="CISOFIELD4">
+<input type="hidden" value="/" name="CISOROOT">
+<input class="button-all" type="submit" value="Go" style="font-size:12px;">
+</form>
+
+</div>
+
+
+<h4>Collections A-Z</h4>
+<ul>
+    {% for collection in site.data.digital %}
+	{% assign alpha = collection.Alpha | append: '</strong>' %}
+	{% assign alphaalpha = alpha | prepend: '<strong>' %}
+{% if collection.Type == "IJCCollection" %}
+<li><a id="ijclink" href="{{ collection.Website }}">{{ collection.colltitle | replace: collection.Alpha, alphaalpha }}</a></li>
+	{% else %}
+<li><a href="{{ collection.Website }}">{{ collection.colltitle | replace: collection.Alpha, alphaalpha }}</a></li>
+	{% endif %}
+{% endfor %}
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+
