@@ -30,6 +30,7 @@ repo-link: on #options[on] - if on, will link to base repository item url outsid
 csvtitle: {{item.CDMID}}
 pagetypes: data,map,timeline,about #options for pagetypes- [data,map,timeline,about] -- home, browse, and subjects are auotmatic
 subjectsplit: subjects # options[subjects - whole subjects, including two word entries separted by semi-colon; words - breaks all subjects into individual words]
+subjectcolor: # Leave blank if you just want the link color for bootstrap; options [orange,red,blue,green,purple,gray]
 mapzoomlevel: 10 # options - 
 datatable: title,creator,description,date,subjects,source # options any field on csv [title,creator,date,description,location,subjects,latitude,longitude,format,type,object-id]
 image-percentage-small: 30
@@ -39,13 +40,25 @@ image-percentage-large: 80
 # url variables
 # url: https://www.lib.uidaho.edu/digital/
 # baseurl: /{{item.CDMID}}
-email: dbecker@uidaho.edu
+
 
 # url variables
 url: https://dcnb.github.io
 baseurl: /jekyll-collection-contentdm
 
 email: dbecker@uidaho.edu
+
+
+# bootstrap themes and options 
+navbar: dark # [dark (default),light, primary]
+bstheme: Materia # leave blank or comment out for plain bootstrap
+# For a bootswatch theme (https://bootswatch.com/) choose from any of the bootswatch themes listed below
+# [Cerulean,Cosmo,Cyborg,Darkly,Flatly,Journal,Litera,Lumen,Lux,Materia,Minty,Pulse,Sandstone,Simplex,Sketchy,Slate,Solar,Spacelab,Superhero,United,Yeti]
+# Note: to enable these, you'll need to rebuild/reserve the website or wait for GH-pages to do so. 
+
+
+
+
 # Item Page Details
 
 # collection  display variables 

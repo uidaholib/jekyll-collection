@@ -4,34 +4,43 @@
 # JEKYLL_ENV=production jekyll build
 
 # Site/Collection settings
-title: Psychiana Digital Collection
-tagline: Materials from the Frank B. Robinson Papers documenting Psychiana, a religion popular in the 1930s and 40s
-subjects: Idaho; Northwest; Latah; Religion #separate semi-colon(';')
-description: "Materials from the Frank B. Robinson Papers documenting Psychiana, a religion popular in the 1930s and 40s" 
-mediatypes: images; documents; audio; correspondence #options[documents,images,video,sound,data] separate semi-colon(';')
-locations: Moscow, ID #separate by semi-colon(';')
-latitude: 46.733711 #to determine center of map
-longitude: -117.001252 #to determine center of map
+title: Latah County Community Heritage Collection
+tagline: Materials from the NEH Funded Common Heritage Community Digitization Project in Latah County
+subjects: Idaho; Northwest; Forests; Wilderness; Fire; Latah; Moscow;Potlatch #separate semi-colon(';')
+description: "The Latah County Common Heritage Collection was driven by funding from a National Endowment for the Humanities (NEH) Common Heritage Grant awarded to the University of Idaho Library in 2016. The materials in this collection were collected via community digitization days held in Moscow and Potlatch in 2016 and 2017." 
+mediatypes: documents; image #options[documents,images,video,sound,data] separate semi-colon(';')
+locations: University of Idaho (Library) #separate by semi-colon(';')
+latitude: 46.738036 #to determine center of map
+longitude: -116.67842 #to determine center of map
 
 # repository variables (leave blank if self-contained)
 repo-url: https://digital.lib.uidaho.edu 
-repo-collection-id: psychiana
+repo-collection-id: lcheritage
 repo-link: on #options[on] - if on, will link to base repository item url outside of directory; if blank, will link to item url within directory, which will require the page-gen settings to be turned on below-- NOTE: these item pages will not work via Github Pages
 
 # Site Population settings
-csvtitle: psychiana
+csvtitle: lcheritage
 pagetypes: data,map,timeline,about #options for pagetypes- [data,map,timeline,about] -- home, browse, and subjects are auotmatic
 subjectsplit: subjects # options[subjects - whole subjects, including two word entries separted by semi-colon; words - breaks all subjects into individual words]
+subjectcolor: # Leave blank if you just want the link color for bootstrap; options [orange,red,blue,green,purple,gray]
 mapzoomlevel: 10 # options - 
 datatable: title,creator,description,date,subjects,source # options any field on csv [title,creator,date,description,location,subjects,latitude,longitude,format,type,object-id]
 image-percentage-small: 30
 image-percentage-medium: 50
 image-percentage-large: 80
 
+# bootstrap themes and options 
+navbar: dark # [dark (default),light, primary]
+bstheme: Materia # leave blank or comment out for plain bootstrap
+# For a bootswatch theme (https://bootswatch.com/) choose from any of the bootswatch themes listed below
+# [Cerulean,Cosmo,Cyborg,Darkly,Flatly,Journal,Litera,Lumen,Lux,Materia,Minty,Pulse,Sandstone,Simplex,Sketchy,Slate,Solar,Spacelab,Superhero,United,Yeti]
+# Note: to enable these, you'll need to rebuild/reserve the website or wait for GH-pages to do so. 
+
+
 # url variables
 # url: https://www.lib.uidaho.edu/digital/
-# baseurl: /psychiana
-email: dbecker@uidaho.edu
+# baseurl: /lcheritage
+
 
 # url variables
 url: https://dcnb.github.io
@@ -45,7 +54,7 @@ email: dbecker@uidaho.edu
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
-  - data: 'psychiana' #should be the same as your csvtitle above
+  - data: 'lcheritage' #should be the same as your csvtitle above
     template: 'items' 
     name: 'object-id' #name of the unique identifier in your metadata sheet
     dir: 'items' #which directory you'd like your pages generated to
