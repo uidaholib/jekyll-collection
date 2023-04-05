@@ -1,5 +1,7 @@
 # jekyll-collection
 
+> this was a very early conceptual prototype for [CollectionBuilder](https://collectionbuilder.github.io/). Don't use it!
+
 a project to generate a digital collection site given:
 - csv of collection metadata
 - directory of images or pdfs
